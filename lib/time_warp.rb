@@ -1,5 +1,5 @@
-module Test # :nodoc: all
-  module Unit
+module Test # :nodoc:
+  module Unit # :nodoc:
     class TestCase
 
       ##
