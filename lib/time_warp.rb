@@ -1,5 +1,3 @@
-require 'core_ext'
-
 module Test # :nodoc: all
   module Unit
     class TestCase
