@@ -12,6 +12,12 @@ some unusual behavior will rear its head and a day will be lost debugging
 tests - the most excruciating debugging one can subject oneself to.
 
 
+Installation
+============
+
+script/plugin install git://github.com/bjhess/time_warp.git
+
+
 Example
 =======
 
