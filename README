@@ -15,8 +15,14 @@ tests - the most excruciating debugging one can be subjected to.
 Installation
 ============
 
+Plugin:
+
 script/plugin install git://github.com/bjhess/time_warp.git
 
+Gem:
+
+$ gem sources -a http://gems.github.com
+$ sudo gem install bjhess-time_warp
 
 Example
 =======
