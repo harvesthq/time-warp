@@ -17,7 +17,7 @@ Installation
 
 Plugin:
 
-script/plugin install git://github.com/bjhess/time_warp.git
+$ script/plugin install git://github.com/bjhess/time_warp.git
 
 Gem:
 
