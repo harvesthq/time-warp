@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name     = "time_warp"
-  s.version  = "1.0.0"
+  s.version  = "1.0.1"
   s.date     = "2008-11-08"
   s.summary  = "Warp time in your tests"
   s.email    = "barry@bjhess.com"
