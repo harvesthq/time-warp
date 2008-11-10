@@ -24,6 +24,10 @@ Gem:
 $ gem sources -a http://gems.github.com
 $ sudo gem install bjhess-time-warp
 
+Gem config in a Rails app.  environment.rb:
+
+config.gem 'bjhess-time-warp', :lib => 'time_warp', :source => "http://gems.github.com"
+
 Example
 =======
 
