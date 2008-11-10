@@ -22,7 +22,7 @@ $ script/plugin install git://github.com/bjhess/time_warp.git
 Gem:
 
 $ gem sources -a http://gems.github.com
-$ sudo gem install bjhess-time_warp
+$ sudo gem install bjhess-time-warp
 
 Example
 =======
