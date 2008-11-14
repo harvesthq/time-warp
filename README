@@ -70,6 +70,18 @@ goal is to assure a particular day of week when each test method executes:
   end
 end
 
+The pretend_now_is method may also be called with the arguments for the
+Time#utc call, rather than a Time argument.  So:
+
+  pretend_now_is(Time.utc(2008,"jul",24,20)) do
+    # Shifted code
+  end
+  
+Becomes:
+
+  pretend_now_is(2008,"jul",24,20) do
+    # Shifted code
+  end
 
 Credits
 =======

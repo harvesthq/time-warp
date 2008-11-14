@@ -44,4 +44,15 @@ class TimeWarpTest < Test::Unit::TestCase
     assert_equal   now_hour, Time.now.hour
     assert_equal now_minute, Time.now.min
   end
+  
+  def test_pretend_now_resolves_to_the_same_value_regardless_of_setting_by_time_argument_or_time_utc_arguments
+    now_with_time_argument = now_with_time_utc_arguments = nil
+    pretend_now_is(Time.utc(2008,"jul",25,6,15)) do #=> Fri Jul 25 06:15:00 UTC 2008
+      now_with_time_argument = Time.now.utc
+    end
+    pretend_now_is(2008,"jul",25,6,15) do           #=> Fri Jul 25 06:15:00 UTC 2008
+      now_with_time_utc_arguments = Time.now.utc
+    end
+    assert_equal now_with_time_argument.to_s, now_with_time_utc_arguments.to_s
+  end
 end
