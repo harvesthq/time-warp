@@ -17,16 +17,16 @@ Installation
 
 Plugin:
 
-$ script/plugin install git://github.com/bjhess/time_warp.git
+$ script/plugin install git://github.com/iridesco/time_warp.git
 
 Gem:
 
 $ gem sources -a http://gems.github.com
-$ sudo gem install bjhess-time-warp
+$ sudo gem install iridesco-time-warp
 
 Gem config in a Rails app.  environment.rb:
 
-config.gem 'bjhess-time-warp', :lib => 'time_warp', :source => "http://gems.github.com"
+config.gem 'iridesco-time-warp', :lib => 'time_warp', :source => "http://gems.github.com"
 
 Example
 =======
@@ -96,4 +96,4 @@ Further discussion of this snippet's evolution may be found at my blog:
 http://bjhess.com/blog/2007/08/12/time-warp-for-rails-testing/
 
 
-Copyright (c) 2008 Barry Hess, released under the MIT license
+Copyright (c) 2008 Barry Hess, Iridesco.  Released under the MIT license.
