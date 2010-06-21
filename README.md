@@ -81,7 +81,7 @@ The creation of this plugin is a direct result of Jason M. Felice's snippet (and
 
 Further discussion of this snippet's evolution may be found [at Barry Hess's blog](http://bjhess.com/blog/2007/08/12/time-warp-for-rails-testing/).
 
-time_warp is maintained and funded by [Iridesco](http://iridesco.com).
+time_warp is maintained and funded by [Harvest](http://www.getHarvest.com).
 
 
-Copyright (c) 2008 [Barry Hess](http://bjhess.com), [Iridesco](http://iridesco.com).  Released under the MIT license.
+Copyright (c) 2008 [Barry Hess](http://bjhess.com), [Harvest](http://www.getHarvest.com).  Released under the MIT license.
