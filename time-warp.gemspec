@@ -1,10 +1,10 @@
 Gem::Specification.new do |s|
   s.name     = "time-warp"
-  s.version  = "1.0.5"
-  s.date     = "2008-11-08"
+  s.version  = "1.0.6"
+  s.date     = "2010-06-21"
   s.summary  = "Warp time in your tests"
-  s.email    = "barry@iridesco.com"
-  s.homepage = "http://github.com/iridesco/time-warp"
+  s.email    = "barry@getHarvest.com"
+  s.homepage = "http://github.com/harvesthq/time-warp"
   s.description = "TimeWarp is a ruby library for manipulating times in automated tests."
   s.has_rdoc = true
   s.authors   = ["Barry Hess"]
