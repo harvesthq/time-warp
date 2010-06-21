@@ -9,16 +9,15 @@ Some may say "Why not just mock Time#now?"  I see the point, but I find mocking 
 
 Plugin:
 
-    $ script/plugin install git://github.com/iridesco/time_warp.git
+    $ script/plugin install git://github.com/harvesthq/time-warp.git
 
 Gem:
 
-    $ gem sources -a http://gems.github.com
-    $ sudo gem install iridesco-time-warp
+    $ sudo gem install time-warp
 
 Gem config in a Rails app.  environment.rb:
 
-    config.gem 'iridesco-time-warp', :lib => 'time_warp', :source => "http://gems.github.com"
+    config.gem 'time-warp'
 
 ### Example
 
