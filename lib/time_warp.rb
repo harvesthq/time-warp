@@ -1,4 +1,4 @@
-require 'core_ext'
+require File.join File.dirname(__FILE__), 'core_ext'
 
 module Test # :nodoc:
   module Unit # :nodoc:
