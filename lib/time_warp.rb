@@ -7,12 +7,20 @@ module Test # :nodoc:
       ##
       # Time warp to the specified time for the duration of the passed block.
       def pretend_now_is(*args)
-        begin
-          Time.testing_offset = Time.now - time_from(*args)
-          yield
-        ensure
-          Time.testing_offset = 0
+        Time.testing_offset = Time.now - time_from(*args)
+        if block_given?
+          begin
+            yield
+          ensure
+            reset_to_real_time
+          end
         end
+      end
+      
+      ##
+      # Reset to real time.
+      def reset_to_real_time
+        Time.testing_offset = 0
       end
     
     private

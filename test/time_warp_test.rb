@@ -55,4 +55,27 @@ class TimeWarpTest < Test::Unit::TestCase
     end
     assert_equal now_with_time_argument.to_s, now_with_time_utc_arguments.to_s
   end
+  
+  def test_pretend_now_without_a_block
+    now        = Time.now
+    now_year   = now.year
+    now_month  = now.month
+    now_day    = now.day
+    now_hour   = now.hour
+    now_minute = now.min
+    
+    pretend_now_is(Time.utc(2008,"jul",25,6,15))
+    assert_equal 2008, Time.now.utc.year
+    assert_equal    7, Time.now.utc.month
+    assert_equal   25, Time.now.utc.day
+    assert_equal    6, Time.now.utc.hour
+    assert_equal   15, Time.now.utc.min
+    reset_to_real_time
+    
+    assert_equal   now_year, Time.now.year
+    assert_equal  now_month, Time.now.month
+    assert_equal    now_day, Time.now.day
+    assert_equal   now_hour, Time.now.hour
+    assert_equal now_minute, Time.now.min
+  end
 end
