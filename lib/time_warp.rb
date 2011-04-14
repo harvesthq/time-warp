@@ -27,6 +27,7 @@ module Test # :nodoc:
     
       def time_from(*args)
         return args[0] if 1 == args.size && args[0].is_a?(Time)
+        return args[0].to_time if 1 == args.size && args[0].respond_to?(:to_time)  # For example, if it's a Date.
         Time.utc(*args)
       end
 

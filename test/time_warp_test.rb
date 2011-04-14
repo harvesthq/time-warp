@@ -78,4 +78,19 @@ class TimeWarpTest < Test::Unit::TestCase
     assert_equal   now_hour, Time.now.hour
     assert_equal now_minute, Time.now.min
   end
+  
+  def test_pretend_now_with_an_object_that_responds_to_to_time
+    # Date objects in rails have to_time methods, but without Rails, they don't so we fake it
+    date = Object.new
+    def date.to_time
+      Time.utc(2008,"jul",25,0,0)
+    end
+    pretend_now_is(date) do #=> Fri Jul 25 00:00:00 UTC 2008
+      assert_equal 2008, Time.now.utc.year
+      assert_equal    7, Time.now.utc.month
+      assert_equal   25, Time.now.utc.day
+      assert_equal    0, Time.now.utc.hour
+      assert_equal    0, Time.now.utc.min
+    end
+  end
 end
