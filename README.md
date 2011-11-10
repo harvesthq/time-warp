@@ -1,11 +1,11 @@
-### time_warp
+## time-warp
 
 When writing tests, it is often desirable to bend time in order to test limits and edges of the day.  It is especially useful to warp time to test results across the timezones of the world.  Manipulating time is also useful to assure a day of the week, month or year every time the test runs.
 
-Some may say "Why not just mock Time#now?"  I see the point, but I find mocking around with baseline Ruby classes to be asking for trouble.  Eventually unusual behavior will rear its head and a day will be lost debugging tests - the most excruciating debugging one can be subjected to.
+Some may say "Why not just mock `Time#now`?"  I see the point, but I find mocking around with baseline Ruby classes to be asking for trouble.  Eventually unusual behavior will rear its head and a day will be lost debugging tests - the most excruciating debugging one can be subjected to.
 
 
-### Installation
+## Installation
 
 Plugin:
 
@@ -13,15 +13,15 @@ Plugin:
 
 Gem:
 
-    $ sudo gem install time-warp
+    $ gem install time-warp
 
-Gem config in a Rails app.  environment.rb:
+Gem config for a Rails app in `config/environment.rb`:
 
     config.gem 'time-warp'
 
 ### Example
 
-And now a contrived example.  In this case, the goal is to let the full mechanics of Rails execute.  Yes, this test will even hit the database! The goal is to assure a particular day of week when each test method executes:
+And now, a contrived example.  In this case, the goal is to let the full mechanics of Rails execute.  Yes, this test will even hit the database! The goal is to assure a particular day of week when each test method executes:
 
     require File.dirname(__FILE__) + '/../test_helper'
     class CompanyTest < Test::Unit::TestCase
@@ -60,7 +60,7 @@ And now a contrived example.  In this case, the goal is to let the full mechanic
 
 ### Notes
 
-The pretend\_now\_is method may also be called with the arguments for the Time#utc call, rather than a Time argument.  So:
+The `pretend_now_is` method may also be called with the arguments for the `Time#utc` call, rather than a `Time` argument.  So:
 
     pretend_now_is(Time.utc(2008,"jul",24,20)) do
       # Shifted code
@@ -72,16 +72,15 @@ Becomes:
       # Shifted code
     end
   
-Also, pretend\_now\_is should impact `ActiveSupport` generated `Date` extensions such as `Date.today`, `Date.tomorrow`, and so on.
+Also, `pretend_now_is` should impact `ActiveSupport` generated `Date` extensions such as `Date.today`, `Date.tomorrow`, and so on.
 
 Credits
 =======
 
+time-warp is maintained and funded by [Harvest](http://www.getHarvest.com). Want to work on projects like this? [We're hiring](http://www.getharvest.com/careers)!
+
 The creation of this plugin is a direct result of Jason M. Felice's snippet (and ensuing discussion).  The snippet can be found [at DZone](http://snippets.dzone.com/posts/show/1738).
 
 Further discussion of this snippet's evolution may be found [at Barry Hess's blog](http://bjhess.com/blog/2007/08/12/time-warp-for-rails-testing/).
-
-time_warp is maintained and funded by [Harvest](http://www.getHarvest.com).
-
 
 Copyright (c) 2008 [Barry Hess](http://bjhess.com), [Harvest](http://www.getHarvest.com).  Released under the MIT license.
