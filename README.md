@@ -19,7 +19,7 @@ Gem config for a Rails app in `config/environment.rb`:
 
     config.gem 'time-warp'
 
-### Example
+## Example
 
 And now, a contrived example.  In this case, the goal is to let the full mechanics of Rails execute.  Yes, this test will even hit the database! The goal is to assure a particular day of week when each test method executes:
 
@@ -58,7 +58,7 @@ And now, a contrived example.  In this case, the goal is to let the full mechani
       end
     end
 
-### Notes
+## Notes
 
 The `pretend_now_is` method may also be called with the arguments for the `Time#utc` call, rather than a `Time` argument.  So:
 
@@ -74,8 +74,7 @@ Becomes:
   
 Also, `pretend_now_is` should impact `ActiveSupport` generated `Date` extensions such as `Date.today`, `Date.tomorrow`, and so on.
 
-Credits
-=======
+## Credits
 
 time-warp is maintained and funded by [Harvest](http://www.getHarvest.com). Want to work on projects like this? [We're hiring](http://www.getharvest.com/careers)!
 
