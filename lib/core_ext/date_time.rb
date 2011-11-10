@@ -5,7 +5,7 @@ DateTime.class_eval do
   class << self
 
     def now
-      Time.now.to_datetime
+      Time.now.send(:to_datetime)
     end
 
   end
