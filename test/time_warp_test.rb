@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/test_helper.rb'
+require "./test/test_helper"
 
 class TimeWarpTest < Test::Unit::TestCase
   def test_test_unit_test_case_should_respond_to_pretend_now_is
@@ -91,29 +91,6 @@ class TimeWarpTest < Test::Unit::TestCase
       assert_equal   25, Time.now.utc.day
       assert_equal    0, Time.now.utc.hour
       assert_equal    0, Time.now.utc.min
-    end
-  end
-  
-  def test_pretend_now_with_date
-    # Date.today returns the current date in local time, not UTC
-    # use local time to test this instead
-    
-    pretend_now_is(Time.local(2008,"jul",25,6,15)) do #=> Fri Jul 25 06:15:00 2008 (local)
-      assert_equal 2008, Date.today.year
-      assert_equal    7, Date.today.month
-      assert_equal   25, Date.today.day
-    end
-  end
-  
-  def test_pretend_now_with_date_time
-    pretend_now_is(Time.utc(2008,"jul",25,6,15)) do #=> Fri Jul 25 06:15:00 UTC 2008
-      date_time = DateTime.now.new_offset(0) # UTC DateTime
-      
-      assert_equal 2008, date_time.year
-      assert_equal    7, date_time.month
-      assert_equal   25, date_time.day
-      assert_equal    6, date_time.hour
-      assert_equal   15, date_time.min
     end
   end
 end
