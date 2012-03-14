@@ -10,7 +10,7 @@ if !Time.respond_to?(:real_now)  # assures there is no infinite looping when ali
       
       alias_method :real_now, :now
       def now
-        real_now - Time.testing_offset
+        real_now.class.at(real_now - Time.testing_offset)
       end
       alias_method :new, :now
       
