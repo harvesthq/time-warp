@@ -114,4 +114,16 @@ class TimeWarpTest < Test::Unit::TestCase
       assert_equal   15, date_time.min
     end
   end
+
+  def test_pretend_now_with_inherited_time_class
+    eval "class MyTime < Time; end"
+    pretend_now_is(Time.utc(2008,"jul",25,6,15)) do #=> Fri Jul 25 06:15:00 UTC 2008
+      my_time = MyTime.now.utc
+      assert_equal 2008, my_time.year
+      assert_equal    7, my_time.month
+      assert_equal   25, my_time.day
+      assert_equal    6, my_time.hour
+      assert_equal   15, my_time.min
+    end
+  end
 end
