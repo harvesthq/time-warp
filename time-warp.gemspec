@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name     = "time-warp"
-  s.version  = "1.0.11"
-  s.date     = "2012-01-12"
+  s.version  = "1.0.12"
+  s.date     = "2012-03-14"
   s.summary  = "Warp time in your tests"
   s.email    = "barry@getHarvest.com"
   s.homepage = "http://github.com/harvesthq/time-warp"
