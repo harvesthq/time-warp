@@ -34,6 +34,14 @@ module Test # :nodoc:
   end
 end
 
+module MiniTest
+  class Unit
+    class TestCase
+      include ::TimeWarpAbility
+    end
+  end
+end
+
 module RSpec
   module Core
     class ExampleGroup
