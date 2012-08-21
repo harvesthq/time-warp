@@ -42,11 +42,13 @@ module MiniTest
   end
 end
 
-module RSpec
-  module Core
-    class ExampleGroup
-      include ::TimeWarpAbility
-     # Time warp to the specified time for the duration of the passed block.
+if defined?(RSpec)
+  module RSpec
+    module Core
+      class ExampleGroup
+        include ::TimeWarpAbility
+       # Time warp to the specified time for the duration of the passed block.
+      end
     end
   end
 end
