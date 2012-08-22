@@ -26,12 +26,10 @@ module TimeWarpAbility
   end
 end
 
-if defined?(Test)
-  module Test # :nodoc:
-    module Unit # :nodoc:
-      class TestCase
-        include ::TimeWarpAbility
-      end
+module Test # :nodoc:
+  module Unit # :nodoc:
+    class TestCase
+      include ::TimeWarpAbility
     end
   end
 end
