@@ -9,10 +9,17 @@ if !Time.respond_to?(:real_now)  # assures there is no infinite looping when ali
       attr_accessor :testing_offset
       
       alias_method :real_now, :now
+      alias_method :real_new, :new
       def now
         real_now.class.at(real_now - Time.testing_offset)
       end
-      alias_method :new, :now
+      def new(*args)
+        if args.any?
+          real_new(*args)
+        else
+          now
+        end
+      end
       
     end
   end
