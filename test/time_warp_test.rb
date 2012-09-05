@@ -114,6 +114,22 @@ class TimeWarpTest < Test::Unit::TestCase
       assert_equal   15, date_time.min
     end
   end
+  
+  
+  major, minor, tiny = RUBY_VERSION.split('.').map{|s| s.to_i}
+  if major.to_i==1 && minor.to_i == 9 && tiny >= 2        
+    def test_19_time_constructor_with_arguments
+      assert_nothing_raised do
+        t = ::Time.new(2005, 11, 10, 12, 0, 2, 0)
+        assert_equal 2005, t.year
+        assert_equal 11, t.month
+        assert_equal 10, t.day
+        assert_equal 12, t.hour
+        assert_equal 0, t.min
+        assert_equal 0, t.utc_offset
+      end
+  end    
+end
 
   def test_pretend_now_with_inherited_time_class
     eval <<-EVAL
