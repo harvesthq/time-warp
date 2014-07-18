@@ -135,4 +135,14 @@ class TimeWarpTest < Minitest::Test
     end
   end
 
+  def test_time_constructor_with_arguments
+    time = ::Time.new(2005, 11, 10, 12, 0, 2, 0)
+
+    assert_equal 2005, time.year
+    assert_equal 11,   time.month
+    assert_equal 10,   time.day
+    assert_equal 12,   time.hour
+    assert_equal 0,    time.min
+    assert_equal 0,    time.utc_offset
+  end
 end
