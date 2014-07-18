@@ -50,3 +50,9 @@ module RSpec
     end
   end
 end
+
+module Minitest
+  class Test
+    include ::TimeWarpAbility
+  end
+end
