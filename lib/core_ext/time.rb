@@ -12,8 +12,11 @@ if !Time.respond_to?(:real_now)  # assures there is no infinite looping when ali
       def now
         real_now.class.at(real_now - Time.testing_offset)
       end
-      alias_method :new, :now
-      
+
+      alias_method :real_new, :new
+      def self.new(*args)
+        args.empty? ? now : real_new(*args)
+      end
     end
   end
 end

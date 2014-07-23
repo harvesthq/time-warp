@@ -1,2 +1,2 @@
-require 'test/unit'
-require File.dirname(__FILE__) + '/../init.rb'
+require 'minitest/autorun'
+require 'time-warp'
