@@ -34,25 +34,31 @@ module Test # :nodoc:
   end
 end
 
-module MiniTest
-  class Unit
-    class TestCase
+if defined?(Minitest::Test)
+  module Minitest
+    class Test
       include ::TimeWarpAbility
     end
   end
 end
 
-module RSpec
-  module Core
-    class ExampleGroup
-      include ::TimeWarpAbility
-     # Time warp to the specified time for the duration of the passed block.
+if defined?(MiniTest::Unit::TestCase)
+  module MiniTest
+    class Unit
+      class TestCase
+        include ::TimeWarpAbility
+      end
     end
   end
 end
 
-module Minitest
-  class Test
-    include ::TimeWarpAbility
+if defined?(RSpec::Core::ExampleGroup)
+  module RSpec
+    module Core
+      class ExampleGroup
+        include ::TimeWarpAbility
+       # Time warp to the specified time for the duration of the passed block.
+      end
+    end
   end
 end
