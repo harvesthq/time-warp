@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "time-warp"
-  spec.version       = "1.0.14"
+  spec.version       = "1.0.15"
   spec.authors       = ["Barry Hess"]
   spec.email         = "barry@getHarvest.com"
   spec.summary       = "Warp time in your tests"
