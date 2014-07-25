@@ -65,13 +65,13 @@ The `pretend_now_is` method may also be called with the arguments for the `Time#
     pretend_now_is(Time.utc(2008,"jul",24,20)) do
       # Shifted code
     end
-  
+
 Becomes:
 
     pretend_now_is(2008,"jul",24,20) do
       # Shifted code
     end
-  
+
 Also, `pretend_now_is` should impact `ActiveSupport` generated `Date` extensions such as `Date.today`, `Date.tomorrow`, and so on.
 
 ## Credits
