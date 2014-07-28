@@ -1,5 +1,7 @@
 ## time-warp
 
+[![Build Status](https://travis-ci.org/harvesthq/time-warp.svg?branch=master)](https://travis-ci.org/harvesthq/time-warp)
+
 When writing tests, it is often desirable to bend time in order to test limits and edges of the day.  It is especially useful to warp time to test results across the timezones of the world.  Manipulating time is also useful to assure a day of the week, month or year every time the test runs.
 
 Some may say "Why not just mock `Time#now`?"  I see the point, but I find mocking around with baseline Ruby classes to be asking for trouble.  Eventually unusual behavior will rear its head and a day will be lost debugging tests - the most excruciating debugging one can be subjected to.

@@ -136,6 +136,9 @@ class TimeWarpTest < Minitest::Test
   end
 
   def test_time_constructor_with_arguments
+    # Time.new does not take any arguments in 1.8
+    skip if RUBY_VERSION =~ /^1\.8/
+
     time = ::Time.new(2005, 11, 10, 12, 0, 2, 0)
 
     assert_equal 2005, time.year
