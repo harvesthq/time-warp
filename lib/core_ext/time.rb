@@ -14,7 +14,7 @@ if !Time.respond_to?(:real_now)  # assures there is no infinite looping when ali
       end
 
       alias_method :real_new, :new
-      def self.new(*args)
+      def new(*args)
         args.empty? ? now : real_new(*args)
       end
     end
