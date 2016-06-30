@@ -15,6 +15,16 @@ class TimeWarpTest < Minitest::Test
     end
   end
 
+  def test_pretend_now_is_should_set_new_back_in_time
+    pretend_now_is(Time.utc(2008,"jul",25,6,15)) do #=> Fri Jul 25 06:15:00 UTC 2008
+      assert_equal 2008, Time.new.utc.year
+      assert_equal    7, Time.new.utc.month
+      assert_equal   25, Time.new.utc.day
+      assert_equal    6, Time.new.utc.hour
+      assert_equal   15, Time.new.utc.min
+    end
+  end
+
   def test_pretend_now_is_should_set_now_forward_in_time
     future_year = Time.now.year + 1
     pretend_now_is(Time.utc(future_year,"jul",25,6,15)) do #=> Fri Jul 25 06:15:00 UTC future_year
@@ -23,6 +33,17 @@ class TimeWarpTest < Minitest::Test
       assert_equal          25, Time.now.utc.day
       assert_equal           6, Time.now.utc.hour
       assert_equal          15, Time.now.utc.min
+    end
+  end
+
+  def test_pretend_now_is_should_set_new_forward_in_time
+    future_year = Time.now.year + 1
+    pretend_now_is(Time.utc(future_year,"jul",25,6,15)) do #=> Fri Jul 25 06:15:00 UTC future_year
+      assert_equal future_year, Time.new.utc.year
+      assert_equal           7, Time.new.utc.month
+      assert_equal          25, Time.new.utc.day
+      assert_equal           6, Time.new.utc.hour
+      assert_equal          15, Time.new.utc.min
     end
   end
 
@@ -43,6 +64,31 @@ class TimeWarpTest < Minitest::Test
     assert_equal    now_day, Time.now.day
     assert_equal   now_hour, Time.now.hour
     assert_equal now_minute, Time.now.min
+  end
+
+  def test_pretend_now_should_revert_to_real_new_after_block
+    now        = Time.new
+    now_year   = now.year
+    now_month  = now.month
+    now_day    = now.day
+    now_hour   = now.hour
+    now_minute = now.min
+
+    pretend_now_is(Time.utc(2008,"jul",25,6,15)) do #=> Fri Jul 25 06:15:00 UTC 2008
+      # block of code
+    end
+
+    assert_equal   now_year, Time.new.year
+    assert_equal  now_month, Time.new.month
+    assert_equal    now_day, Time.new.day
+    assert_equal   now_hour, Time.new.hour
+    assert_equal now_minute, Time.new.min
+  end
+
+  def test_time_new_with_arguments_ignores_pretend_now
+    pretend_now_is(Time.utc(2008,"jul",25,6,15)) do #=> Fri Jul 25 06:15:00 UTC 2008
+      assert_equal 2012, Time.new(2012).year
+    end
   end
 
   def test_pretend_now_resolves_to_the_same_value_regardless_of_setting_by_time_argument_or_time_utc_arguments
